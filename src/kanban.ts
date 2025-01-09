@@ -63,7 +63,7 @@ const TASK_STATUS = ['todo', 'working', 'done'] as const
 type TaskStatus = (typeof TASK_STATUS)[number] // インデックスアクセス型
 
 class TaskList {
-  templagteEl: HTMLTemplateElement
+  templateEl: HTMLTemplateElement
   element: HTMLDivElement
   private taskStatus: TaskStatus
 
@@ -72,7 +72,7 @@ class TaskList {
     this.templateEl = document.querySelector(templateId)!
 
     // template要素のコンテンツ（子要素）を複製。trueを渡すことですべての階層でクローンする。
-    const clone = this.templagteEl.content.cloneNode(true) as DocumentFragment
+    const clone = this.templateEl.content.cloneNode(true) as DocumentFragment
 
     // クローンした子要素から、1つ目を取得
     this.element = clone.firstElementChild as HTMLDivElement
@@ -99,5 +99,6 @@ class TaskList {
 
 TASK_STATUS.forEach((status) => {
   const list = new TaskList('#task-list-template', status)
+  console.log(list)
   list.mount('#container')
 })
