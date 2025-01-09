@@ -12,5 +12,9 @@
   "devDependencies": {
     "serve": "^14.2.1",
     "typescript": "^5.2.2"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   }
 }
